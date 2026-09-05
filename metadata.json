@@ -1,0 +1,6 @@
+{
+  "name": "MyAI Journal",
+  "description": "An AI-powered student journal to record daily thoughts, school progress, goals, mood, and reflections.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

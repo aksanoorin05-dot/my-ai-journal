@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "JournalEntry": {
+      "title": "JournalEntry",
+      "description": "A student's private daily journal reflection",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "mood": { "type": "string" },
+        "tags": { "type": "array" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "wordCount": { "type": "number" },
+        "aiReflection": { "type": "string" },
+        "aiKeyTakeaway": { "type": "string" }
+      },
+      "required": ["userId", "title", "content", "mood", "createdAt"]
+    },
+    "StudentTask": {
+      "title": "StudentTask",
+      "description": "A student study task or academic to-do item",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "dueDate": { "type": "string" },
+        "completed": { "type": "boolean" },
+        "priority": { "type": "string" },
+        "aiSuggested": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "title", "completed", "createdAt"]
+    },
+    "StudentProfile": {
+      "title": "StudentProfile",
+      "description": "Student settings and reflection preferences",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "grade": { "type": "string" },
+        "major": { "type": "string" },
+        "streak": { "type": "number" },
+        "dailyGoal": { "type": "number" },
+        "reminderTime": { "type": "string" },
+        "remindersEnabled": { "type": "boolean" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "name"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/entries/{entryId}": {
+      "schema": "JournalEntry",
+      "description": "Student's private journal entries"
+    },
+    "/users/{userId}/tasks/{taskId}": {
+      "schema": "StudentTask",
+      "description": "Student's private study tasks"
+    },
+    "/users/{userId}/profile/{docId}": {
+      "schema": "StudentProfile",
+      "description": "Student profile and preferences"
+    }
+  }
+}
